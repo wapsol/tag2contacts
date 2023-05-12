@@ -1,0 +1,5 @@
+# For contact_tags/__init__.py
+from . import models
+
+# For contact_tags/models/__init__.py
+from . import res_partner
