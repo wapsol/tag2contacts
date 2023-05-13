@@ -2,7 +2,6 @@
 
 ## 1. Introduction
 
-This document specifies the software requirements for the Odoo Contact-Tag Module. 
 This module extends the functionality of Odoo Version 16 by adding the feature to list all contacts related to a specific contact tag.
 
 ## 2. General Description
