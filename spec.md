@@ -18,11 +18,6 @@ The module provides two primary functionalities:
 1. **FR1.0 Contact-Tag Listing:** When a user selects a contact-tag, the system must list all contacts associated with that tag.
     - **FR1.1:** The system should handle multiple tags for a single contact.
     - **FR1.2:** The system should update the list in real-time when a new contact is tagged or an existing contact tag is modified.
-  
-2. **FR2.0 Multiple Edit Feature:** The system should allow the user to select multiple contacts and edit their tags.
-    - **FR2.1:** The system must provide a user-friendly interface for selecting multiple contacts.
-    - **FR2.2:** The system should allow the user to add, remove or edit tags for the selected contacts.
-    - **FR2.3:** The system must confirm from the user before applying the changes.
 
 ### 3.2 Non-functional Requirements
 
