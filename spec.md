@@ -8,8 +8,8 @@ This module extends the functionality of Odoo Version 16 by adding the feature t
 
 The module provides two primary functionalities:
 
-- **Contact-Tag Listing:** For a selected contact-tag under `Contacts > Configuration > Tags`, the module will list all contacts associated with that tag.
-- ~**Multiple Edit (Odoo standard feature):** It allows users to multi-select contacts from the resulting list and edit their tags simultaneously.~
+1. **Contact-Tag Listing:** For a selected contact-tag under `Contacts > Configuration > Tags`, the module will list all contacts associated with that tag.
+2. ~**Multiple Edit (Odoo standard feature):** It allows users to multi-select contacts from the resulting list and edit their tags simultaneously.~
 
 ## 3. Specific Requirements
 
