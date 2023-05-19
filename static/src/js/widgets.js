@@ -11,8 +11,6 @@ odoo.define('tag2contacts.form_widgets', function (require) {
 	var FieldOne2Many = require('web.relational_fields').FieldOne2Many;
 
 	ListRenderer.include({
-
-		// Override this method to get delete button appear,disappear logic
 		_updateSelection: function () {
 	        this.selection = [];
 	        var self = this;
@@ -26,9 +24,9 @@ odoo.define('tag2contacts.form_widgets', function (require) {
 	            }
 	        });
 	        if(this.selection.length > 0){
-	        	$('.button_delete_sale_order_lines').show()
+	        	$('.button_edit_partner_tag').show()
 	        }else{
-	        	$('.button_delete_sale_order_lines').hide()
+	        	$('.button_edit_partner_tag').hide()
 	        }
 	        this.$('thead .o_list_record_selector input').prop('checked', allChecked);
 	        this.trigger_up('selection_changed', { selection: this.selection });
@@ -40,7 +38,7 @@ odoo.define('tag2contacts.form_widgets', function (require) {
 	var One2ManySelectable = FieldOne2Many.extend({
 		template: 'One2ManySelectable',
 		events: {
-			"click .button_delete_sale_order_lines": "action_selected_lines",
+			"click .button_edit_partner_tag": "action_selected_lines",
 		},
 		start: function()
 	    {
@@ -56,16 +54,27 @@ odoo.define('tag2contacts.form_widgets', function (require) {
 				this.do_warn(_t("You must choose at least one record."));
 				return false;
 			}
-			this.do_action({
-				type: "ir.actions.act_window",
-				name: 'Partner Tags',
-				res_model: "partner.tag.wizard",
-				view_mode: "list",
-				views: [[false, 'list']],
-				target: "new",
-				context: {'selected_ids': selected_ids},
-        	});
+			rpc.query({
+				model: 'partner.tag.wizard',
+				method: 'action_tag_wizard',
+				args: [, selected_ids],
+			}).then(function (resId) {
+				if (resId) {
+					self.do_action({
+						name: 'Edit Partner Tag',
+						type: 'ir.actions.act_window',
+						res_model: 'partner.tag.wizard',
+						res_id: resId,
+						views: [[false, 'form']],
+						target: 'new',
+						context: {'res_id': resId},
+					}).then(function() {
+						$(".o_field_x2many_list_row_add, .o_list_record_remove").hide();
+					});
+				}
+			});
 		},
+
 		_getRenderer: function () {
             if (this.view.arch.tag === 'kanban') {
                 return One2ManyKanbanRenderer;
@@ -80,7 +89,7 @@ odoo.define('tag2contacts.form_widgets', function (require) {
             }
             return this._super.apply(this, arguments);
         },
-		//collecting the selected IDS from one2manay list
+
 		get_selected_ids_one2many: function () {
             var self=this;
             var ids =[];
@@ -100,9 +109,7 @@ odoo.define('tag2contacts.form_widgets', function (require) {
             });
             return record.res_id;
         },
-
 	});
-	// register unique widget, because Odoo does not know anything about it
-	//you can use <field name="One2many_ids" widget="x2many_selectable"> for call this widget
+
 	fieldRegistry.add('one2many_selectable', One2ManySelectable);
 });

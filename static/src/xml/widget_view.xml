@@ -4,9 +4,9 @@
     <t t-name="One2ManySelectable">
 		<div>
 			<t t-if="!widget.get('effective_readonly')">
-				<button style="margin-bottom: 1%;display:none;" class="button_delete_sale_order_lines btn btn-primary oe_highlight"
+				<button style="margin-bottom: 1%;display:none;" class="button_edit_partner_tag btn btn-primary oe_highlight"
 						href="javascript:void(0)">
-					Delete
+					Edit Tag
 				</button>
 			</t>
 			<t t-else="">
