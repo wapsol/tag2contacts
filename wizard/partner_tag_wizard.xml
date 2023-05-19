@@ -1,0 +1,36 @@
+<odoo>
+<!--    <record id="partner_tag_wizard_form" model="ir.ui.view">-->
+<!--        <field name="name">partner.tag.wizard.form</field>-->
+<!--        <field name="model">partner.tag.wizard</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="Partner Tags">-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <field name="partner_ids" nolabel="1">-->
+<!--                            <tree create="0" edit="1">-->
+<!--                                <field name="name" />-->
+<!--                                <field name="category_id" widget="many2many_tags"/>-->
+<!--                            </tree>-->
+<!--                        </field>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--                <footer>-->
+<!--                    <button string="Close" class="btn-secondary" special="cancel"/>-->
+<!--                </footer>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+<!--    -->
+    <record id="partner_tag_wizard_tree" model="ir.ui.view">
+        <field name="name">partner.tag.wizard.tree</field>
+        <field name="model">partner.tag.wizard</field>
+        <field name="arch" type="xml">
+            <tree string="Tags" create="1" multi_edit="1" editable="bottom">
+                <field name="partner_id" readonly="1"/>
+                <field name="tag_ids" widget="many2many_tags"/>
+<!--                <button string="Confirm" name="edit_partner_tag" type="object" class="oe_highlight"/>-->
+<!--                <button string="Cancel" class="btn-secondary" special="cancel"/>-->
+        </tree>
+        </field>
+    </record>
+</odoo>

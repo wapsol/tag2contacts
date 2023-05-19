@@ -8,7 +8,17 @@
     'depends': ['base', 'contacts'],
     'data': [
         'views/res_partner_views.xml',
+        'wizard/partner_tag_wizard.xml',
+        'security/ir.model.access.csv',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'tag2contacts/static/src/js/widgets.js',
+        ],
+        'web.assets_qweb': [
+            'tag2contacts/static/src/xml/widget_view.xml',
+        ],
+    },
     'installable': True,
     'application': False,
     'auto_install': False,
