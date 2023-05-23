@@ -1,0 +1,24 @@
+<odoo>
+    <record id="partner_tag_wizard_form" model="ir.ui.view">
+        <field name="name">partner.tag.wizard.form</field>
+        <field name="model">partner.tag.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Partner Tags">
+                <sheet>
+                    <group>
+                        <field name="tag_wizard_ids" nolabel="1" widget="section_and_note_one2many" mode="tree">
+                            <tree editable="bottom">
+                                <field name="partner_id" readonly="1"/>
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Confirm" class="oe_highlight" type="object" name="action_confirm"/>
+                    <button string="Close" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

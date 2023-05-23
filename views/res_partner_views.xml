@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="base.view_partner_category_form"/>
         <field name="arch" type="xml">
             <xpath expr="//group[1]" position="after">
-                <field name="partner_ids" readonly="1"/>
+                <field name="partner_ids" readonly="1" widget="one2many_selectable"/>
             </xpath>
         </field>
     </record>
