@@ -28,3 +28,6 @@ class PartnerTagWizard(models.TransientModel):
         for rec in parent_tag.tag_wizard_ids:
             rec.partner_id.sudo().write({'category_id': [(6, 0, rec.tag_ids.ids)]})
         return {'type': 'ir.actions.client', 'tag': 'reload'}
+
+    def get_formview_id(self):
+        return self.env.ref('tag2contacts.partner_tag_wizard_form').id

@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates id="template" xml:space="preserve">
-
-    <t t-name="One2ManySelectable">
-		<div>
-			<t t-if="!widget.get('effective_readonly')">
-				<button style="margin-bottom: 1%;display:none;" class="button_edit_partner_tag btn btn-primary oe_highlight"
-						href="javascript:void(0)">
+    <t t-name="tag2contacts.One2ManySelectable" t-inherit="web.X2ManyField" t-inherit-mode="primary" owl="1">
+		<xpath expr="//div[hasclass('o_x2m_control_panel')]" position="before">
+			<div>
+				<button t-if="hasSelected" class="btn btn-primary oe_highlight" t-on-click="editPartnerTag">
 					Edit Tag
 				</button>
-			</t>
-			<t t-else="">
-				<span class="oe_form_char_content"></span>
-			</t>
-		</div>
+            	<t t-if="props.readonly">
+					<span class="oe_form_char_content"/>
+				</t>
+			</div>
+		</xpath>
     </t>
 </templates>

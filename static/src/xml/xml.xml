@@ -1,0 +1,19 @@
+<templates id="template" xml:space="preserve">
+<t t-name="tag2contacts.One2ManySelectable" t-inherit="web.X2ManyField" t-inherit-mode="primary" owl="1">
+    <xpath expr="//div[hasclass('o_x2m_control_panel')]" position="before">
+        <div>
+        <button t-if="hasSelected" class="btn btn-danger" t-on-click="deleteSelected">
+            <span class="fa fa-trash"/>
+        </button>
+        <button t-if="hasSelected" class="btn btn-success" t-on-click="deleteUnselected">
+             <span class="fa fa-check"/>
+        </button>
+            <t t-if="props.readonly">
+         <span class="oe_form_char_content"/>
+        </t>
+    </div>
+    </xpath>
+</t>
+</templates>
+
+
