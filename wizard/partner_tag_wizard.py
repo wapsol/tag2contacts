@@ -5,7 +5,8 @@ class PartnerTagWizard(models.TransientModel):
     _name = "partner.tag.wizard"
     _description = "Change partner tag wizard"
 
-    tag_wizard_ids = fields.Many2many('partner.tag.wizard', 'partner_tag_wizard_rel', 'tag_wizard_rel_1', 'tag_wizard_rel_2', string='Children Tags')
+    tag_wizard_ids = fields.Many2many('partner.tag.wizard', 'partner_tag_wizard_rel', 'tag_wizard_rel_1', 'tag_wizard_rel_2',
+                                      string='Contact Tags', help='Tag list of the selected contacts')
     partner_id = fields.Many2one('res.partner', string='Partner')
     tag_ids = fields.Many2many('res.partner.category', string='Tags')
 

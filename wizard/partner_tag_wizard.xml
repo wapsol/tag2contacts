@@ -5,14 +5,17 @@
         <field name="arch" type="xml">
             <form string="Partner Tags">
                 <sheet>
-                    <group>
-                        <field name="tag_wizard_ids" nolabel="1" widget="section_and_note_one2many" mode="tree">
-                            <tree editable="bottom">
-                                <field name="partner_id" readonly="1"/>
-                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
-                            </tree>
-                        </field>
-                    </group>
+                    <notebook>
+                        <page string="Contact Tags" name="contact_tags">
+                            <field name="tag_wizard_ids" widget="one2many" mode="tree">
+                                <tree editable="bottom">
+                                    <field name="partner_id" readonly="1"/>
+                                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
                 </sheet>
                 <footer>
                     <button string="Confirm" class="oe_highlight" type="object" name="action_confirm"/>
