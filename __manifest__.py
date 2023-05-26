@@ -13,10 +13,8 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'tag2contacts/static/src/js/widgets.js',
-        ],
-        'web.assets_qweb': [
             'tag2contacts/static/src/xml/widget_view.xml',
+            'tag2contacts/static/src/js/widgets.js',
         ],
     },
     'installable': True,
